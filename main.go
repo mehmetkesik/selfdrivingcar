@@ -3,18 +3,16 @@ package main
 import (
 	"github.com/tfriedel6/canvas"
 	"github.com/tfriedel6/canvas/sdlcanvas"
-	"github.com/veandco/go-sdl2/sdl"
 	"github.com/veandco/go-sdl2/img"
+	"github.com/veandco/go-sdl2/sdl"
 	"image"
 	"image/color"
-	"math"
 	"os"
 )
 
 const (
 	WIDTH  = 640
 	HEIGHT = 480
-	FPS    = 70
 )
 
 type Scene struct {
@@ -156,13 +154,4 @@ func update(scene *Scene) {
 
 func drawBackground(scene *Scene) {
 	scene.canvas.DrawImage(scene.bg, 0, 0)
-}
-
-func normalize(x, min, max float64) float64 {
-	if x < min {
-		x = min
-	} else if x > max {
-		x = max
-	}
-	return math.Floor(((x-min)/(max-min))*100) / 100
 }
